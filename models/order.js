@@ -5,6 +5,7 @@
  *
  */
 
+const currentDate = new Date();
 const Chance = require("chance");
 const chance = new Chance();
 
@@ -17,8 +18,8 @@ module.exports = {
 	newOrder: () => {
 		const order = {
 			error: false,
-			// TODO: change to guid
 			id: chance.guid(),
+			dateTime: "${currentdate.getDate()}/${(currentdate.getMonth() + 1)}/${currentdate.getFullYear()}@${currentdate.getHours()}:${currentdate.getMinutes()}:${currentdate.getSeconds()}",
 			state: "preparing",
 			customerName: "name",
 			customerAddress: "address",

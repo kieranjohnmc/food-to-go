@@ -19,6 +19,7 @@ describe("Order Model - New Order", () => {
 	it("order should have required properties", (done) => {
 		expect(order).to.have.property("error");
 		expect(order).to.have.property("id");
+		expect(order).to.have.property("dateTime");
 		expect(order).to.have.property("state");
 		expect(order).to.have.property("customerName");
 		expect(order).to.have.property("customerAddress");
@@ -35,6 +36,8 @@ describe("Order Model - New Order", () => {
 		// guid with length of 36 - 32 chars 4 dashes
 		expect(order.id).to.be.a("string");
 		expect(order.id.length).to.equal(36);
+		expect(order.dateTime).to.be.a("string");
+		expect(order.dateTime.length).to.be.at.least(5);
 		expect(order.state).to.be.a("string");
 		expect(order.state).to.equal("preparing");
 		expect(order.customerName).to.be.a("string");
