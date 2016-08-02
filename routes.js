@@ -10,6 +10,7 @@ const routes = new Router();
 
 const main = require("./controllers/main.js");
 const account = require("./controllers/account.js");
+const api = require("./controllers/api.js");
 
 // routes
 
@@ -19,6 +20,8 @@ routes.get("/", main.index);
 routes.get("/login", account.login);
 routes.get("/logout", account.logout);
 routes.get("/account", account.index);
+
+routes.post("/api/order", api.newOrder);
 
 // you can add as many strategies as you want
 routes.get("/auth/github",

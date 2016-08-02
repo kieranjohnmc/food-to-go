@@ -10,6 +10,7 @@ module.exports.index = function* index() {
 	}
 	yield this.render("index", {
 		title: config.site.name,
-		user: user
+		user: user,
+		script: "index"
 	});
 };
