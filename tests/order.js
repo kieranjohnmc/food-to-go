@@ -32,9 +32,9 @@ describe("Order Model - New Order", () => {
 	it("order should have the correct starting values", (done) => {
 		expect(order.error).to.be.a("boolean");
 		expect(order.error).to.equal(false);
-		// TODO: This should be a guid with length of 36 - 32 chars 4 dashes
-		expect(order.id).to.be.a("number");
-		expect(order.id).to.equal(0);
+		// guid with length of 36 - 32 chars 4 dashes
+		expect(order.id).to.be.a("string");
+		expect(order.id.length).to.equal(36);
 		expect(order.state).to.be.a("string");
 		expect(order.state).to.equal("preparing");
 		expect(order.customerName).to.be.a("string");
