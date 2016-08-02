@@ -5,6 +5,9 @@
  *
  */
 
+const Chance = require("chance");
+const chance = new Chance();
+
 module.exports = {
 	/**
 	* newOrder
@@ -15,7 +18,7 @@ module.exports = {
 		const order = {
 			error: false,
 			// TODO: change to guid
-			id: 0,
+			id: chance.guid(),
 			state: "preparing",
 			customerName: "name",
 			customerAddress: "address",

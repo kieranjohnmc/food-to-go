@@ -24,8 +24,10 @@
   },
   "homepage": "https://github.com/cynical89/PizzaGO#readme",
   "dependencies": {
+    "chance": "^1.0.4",
     "co": "^4.6.0",
     "eslint": "^3.2.2",
+    "guid": "0.0.12",
     "koa": "^1.1.2",
     "koa-bodyparser": "^2.0.1",
     "koa-generic-session": "^1.10.0",
