@@ -2,9 +2,21 @@
 
 	<div class="starter-template">
 		<h1>{{get_name}}</h1>
-		<p class="lead">Start your pizza order online today.</p>
-		<form>
+		<p class="lead">Start your pizza order online today.<br><br><br></p>
+		<form id="startForm">
+			<div id="one">
+				<h3>Which location do you want to order from?</h3><hr>
+				<input type="radio" name="location" value="colville"> Coville
+				<input type="radio" name="location" value="kettle"> Kettle Falls<hr><p><br><br></p>
+			</div>
+			<div id="two">
+				<h3>Delivery or Carry-Out?</h3><hr>
+				<input type="radio" name="options" value="delivery"> Delivery
+				<input type="radio" name="options" value="carryout"> Carry-Out<br><hr>
+			</div>
+			<div id="go">
 				<button class="btn btn-primary startBtn" id="startButton">Start Order</button>
+			</div>
 		</form>
 	</div>
 

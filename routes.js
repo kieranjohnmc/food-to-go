@@ -15,6 +15,7 @@ const api = require("./controllers/api.js");
 // routes
 
 routes.get("/", main.index);
+routes.get("/ordering", main.ordering);
 
 // for passport
 routes.get("/login", account.login);

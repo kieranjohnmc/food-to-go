@@ -14,3 +14,10 @@ module.exports.index = function* index() {
 		script: "index"
 	});
 };
+
+module.exports.ordering = function* ordering() {
+	yield this.render("ordering", {
+		title: config.site.name,
+		script: "ordering"
+	});
+};
