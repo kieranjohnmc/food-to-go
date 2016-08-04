@@ -27,11 +27,7 @@
     "bluebird": "^3.4.1",
     "chance": "^1.0.4",
     "co": "^4.6.0",
-<<<<<<< HEAD
-    "co-monk": "^1.0.0",
-=======
     "cradle": "^0.7.1",
->>>>>>> updates
     "guid": "0.0.12",
     "koa": "^1.1.2",
     "koa-bodyparser": "^2.0.1",
@@ -40,10 +36,8 @@
     "koa-passport": "^1.2.0",
     "koa-router": "^5.3.0",
     "koa-static-folder": "^0.1.6",
-    "monk": "^3.1.1",
     "passport-github": "^1.0.0",
     "socket.io": "^1.4.8",
-    "swig": "^1.4.2"
   },
   "devDependencies": {
     "chai": "^3.5.0",

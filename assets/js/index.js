@@ -19,24 +19,7 @@ $( document ).ready(function() {
 
 	$("#startButton").on("click", function(e) {
 		e.preventDefault();
-<<<<<<< HEAD
-		var location = $("input[name=location]:checked").val();
-		var method = $("input[name=options]:checked").val();
-		var options = {
-			location: location,
-			method: method
-		};
-		options = JSON.stringify(options);
-		localStorage.setItem("_options", options);
-		window.location = "ordering";
-	});
 
-	$("#whatbutton").on("click", function(e) {
-		e.preventDefault();
-
-=======
-		
->>>>>>> updates
 		$.ajax({
 			type: "POST",
 		 	dataType: "json",

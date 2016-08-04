@@ -1,15 +1,6 @@
 "use strict";
 
 const config = require("../config.json");
-const parse = require("co-body");
-
-// Set up monk
-const monk = require("monk");
-const wrap = require("co-monk");
-const db = monk("localhost/orders");
-
-// Wrap monk in generator goodness
-const posts = wrap(db.get("posts"));
 
 const parse = require("co-body");
 
@@ -23,22 +14,6 @@ const orderModel = require("../models/order");
 *
 */
 module.exports.newOrder = function* newOrder() {
-<<<<<<< HEAD
-	const order = yield parse(this);
-	order.created_on = new Date();
-
-	try
-	{
-		this.body = yield order.insert(order);
-		this.status = 201;
-	}
-	catch (e)
-	{
-		this.body = "An error occured: ${e}";
-		this.status = 401;
-	}
-
-=======
 	const params = this.request.body;
 	if (!params.location && params.method) {
 		this.status = 400;
@@ -99,5 +74,4 @@ module.exports.saveInfo = function* saveInfo() {
 
 	return this.body = result;
 
->>>>>>> updates
 };

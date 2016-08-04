@@ -1,26 +1,8 @@
-<<<<<<< HEAD
-var storeLocation;
-var method;
-$( document ).ready(function() {
-	hideAll();
-	var options = localStorage.getItem('_options');
-	if(!options) return false;
-	options = JSON.parse(options);
-	storeLocation = options.location;
-	method = options.method;
-	console.log(options.location, options.method);
-
-	if(method === "carryout") {
-		$("#deliveryInfo").hide();
-		$("#one").show();
-	}
-=======
 var orderID;
 var order;
 $( document ).ready(function() {
 	hideAll();
 	getOrder();
->>>>>>> updates
 
 	$("input[name='cat']").on("change", function(e) {
 			$("#add").show("fade");
@@ -28,12 +10,6 @@ $( document ).ready(function() {
 
 	$("#infoButton").on("click", function(e) {
 		e.preventDefault();
-<<<<<<< HEAD
-		// TODO: Street address validation with google maps!
-		// check for if address is valid or not. <-- definitely needs
-		// TODO: check for distance from store to address.
-		// this is a later function. <-- would like this
-=======
 
 		var name = $("#name").val();
 		var address = $("#address").val() + ", " + $("#city").val() + ", " +
@@ -56,16 +32,13 @@ $( document ).ready(function() {
 		 	}
 			// do something with the success, like show a link
 			console.log(result);
+			//$("#deliveryInfo").hide();
+			//$("#one").show("fade");
 	 	}).fail(function(err) {
 			// do something with the failure, like laugh at the user
 			window.alert("hahahahaha! NO!");
 			console.error(err);
 	 });
-
->>>>>>> updates
-		$("#deliveryInfo").hide();
-		$("#one").show("fade");
-	});
 
 	$("#continueButton").on("click", function(e) {
 		e.preventDefault();
@@ -93,8 +66,6 @@ function hideAll() {
 	$("#go").hide();
 	$("#add").hide();
 }
-<<<<<<< HEAD
-=======
 
 function getOrder() {
 	// FIXME: This needs to be sessions, not local storage
@@ -127,4 +98,3 @@ function getOrder() {
 		console.error(err);
  });
 }
->>>>>>> updates

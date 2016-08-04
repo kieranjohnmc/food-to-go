@@ -21,15 +21,9 @@ const connectToDatabase = (dbName) => {
 };
 
 // Grabs a document from a database in CouchDB.
-<<<<<<< HEAD
-exports.getGame = function* getGame(id) {
-	try {
-		const db = connectToDatabase("games");
-=======
 exports.getOrder = function* getOrder(id) {
 	try {
 		const db = connectToDatabase("orders");
->>>>>>> updates
 		const doc = yield db.getAsync(id);
 		doc.error = false;
 		return doc;
@@ -42,15 +36,9 @@ exports.getOrder = function* getOrder(id) {
 };
 
 // Saves a document in a database in CouchDB.
-<<<<<<< HEAD
-exports.saveGame = function* saveGame(document) {
-	try {
-		const db = connectToDatabase("games");
-=======
 exports.saveOrder = function* saveOrder(document) {
 	try {
 		const db = connectToDatabase("orders");
->>>>>>> updates
 		const returnVal = yield db.saveAsync(document.id, document);
 		document.id = returnVal.id;
 		document.error = false;
@@ -64,15 +52,9 @@ exports.saveOrder = function* saveOrder(document) {
 };
 
 // Removes a document in a database in CouchDB.
-<<<<<<< HEAD
-exports.removeGame = function* removeGame(id) {
-	try {
-		const db = connectToDatabase("games");
-=======
 exports.removeOrder = function* removeOrder(id) {
 	try {
 		const db = connectToDatabase("orders");
->>>>>>> updates
 		const returnVal = yield db.removeAsync(id);
 		returnVal.error = false;
 		return returnVal;
