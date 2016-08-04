@@ -23,6 +23,8 @@ routes.get("/logout", account.logout);
 routes.get("/account", account.index);
 
 routes.post("/api/order", api.newOrder);
+routes.post("/api/getOrder", api.getOrder);
+routes.post("/api/info", api.saveInfo);
 
 // you can add as many strategies as you want
 routes.get("/auth/github",

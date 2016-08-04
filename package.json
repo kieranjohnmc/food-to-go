@@ -24,9 +24,14 @@
   },
   "homepage": "https://github.com/cynical89/PizzaGO#readme",
   "dependencies": {
+    "bluebird": "^3.4.1",
     "chance": "^1.0.4",
     "co": "^4.6.0",
+<<<<<<< HEAD
     "co-monk": "^1.0.0",
+=======
+    "cradle": "^0.7.1",
+>>>>>>> updates
     "guid": "0.0.12",
     "koa": "^1.1.2",
     "koa-bodyparser": "^2.0.1",
