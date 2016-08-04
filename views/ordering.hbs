@@ -1,0 +1,46 @@
+<div class="container">
+
+	<div class="starter-template">
+		<h1>{{get_name}}</h1>
+		<p class="lead">Time to pick what you want in your order!</p>
+		<!--TODO: These items need to be required to continue. -->
+		<form id="deliveryInfo">
+			Name:  <input id="name" type=""><br><br>
+			Phone Number:  <input id="number" type=""><br><br>
+			Address:  <input id="address" type="">
+			City:  <input id="city" type=""><br><br>
+			State:  <input id="state" type="">
+			Zip Code:  <input id="zip" type=""><br><br>
+			<button class="btn btn-primary startBtn" id="infoButton">Submit Info</button>
+
+		</form>
+
+		<form id="optionForm">
+			<div id="one">
+				<h3>Which item do you want to add to the order?</h3><hr>
+				<!--TODO: Once this is showing, we need to allow users to
+				see the items that are available for them to pick. this will involve a get from the db. -->
+				<input type="radio" name="cat" value="apetizers"> Apetizers
+				<input type="radio" name="cat" value="pizza"> Pizza
+				<input type="radio" name="cat" value="pasta"> Pasta
+				<input type="radio" name="cat" value="sodas"> Sodas
+				<input type="radio" name="cat" value="salads"> Salads
+				<input type="radio" name="cat" value="desert"> Desert <hr><p><br><br></p>
+			</div>
+			<div id="two">
+				<h3>more options??</h3><hr>
+				<input type="radio" name="name" value="value"> value?
+				<input type="radio" name="name" value="value"> value?
+				<br><hr>
+			</div>
+			<div id="add">
+				<button class="btn btn-primary startBtn" id="cartButton">Add to Cart</button>
+			</div>
+			<div id="go">
+				<button class="btn btn-primary startBtn" id="checkoutButton">Checkout</button>
+				<button class="btn btn-primary startBtn" id="continueButton">Continue Shopping</button>
+			</div>
+		</form>
+	</div>
+
+</div><!-- /.container -->
