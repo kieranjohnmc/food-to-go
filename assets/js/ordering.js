@@ -20,6 +20,9 @@ $( document ).ready(function() {
 		// check for if address is valid or not.
 		// TODO: check for distance from store to address.
 		// this is a later function.
+		console.log(name);
+		console.log(address);
+		console.log(phone);
 		$.ajax({
 			type: "POST",
 		 	dataType: "json",
@@ -32,8 +35,8 @@ $( document ).ready(function() {
 		 	}
 			// do something with the success, like show a link
 			console.log(result);
-			//$("#deliveryInfo").hide();
-			//$("#one").show("fade");
+			$("#deliveryInfo").hide();
+			$("#one").show("fade");
 	 	}).fail(function(err) {
 			// do something with the failure, like laugh at the user
 			window.alert("hahahahaha! NO!");
@@ -58,6 +61,7 @@ $( document ).ready(function() {
 		$("#go").show("fade");
 	});
 
+	});
 });
 
 function hideAll() {
