@@ -19,13 +19,9 @@ $( document ).ready(function() {
 
 	$("#startButton").on("click", function(e) {
 		e.preventDefault();
-
-		$.ajax({
-			type: "POST",
-		 	dataType: "json",
-		 	url: "/api/order", // A valid URL
 		var location = $("input[name=location]:checked").val();
 		var method = $("input[name=options]:checked").val();
+
 		$.ajax({
 			type: "POST",
 		 	dataType: "json",
