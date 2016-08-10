@@ -28,3 +28,10 @@ module.exports.store = function* store() {
 		script: "store"
 	});
 };
+
+module.exports.add = function* add() {
+	yield this.render("store/add", {
+		title: config.site.name,
+		script: "addItem"
+	});
+};

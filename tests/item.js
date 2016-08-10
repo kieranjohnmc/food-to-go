@@ -7,7 +7,7 @@ let item;
 
 describe("Item Model - New Item", () => {
 	before(() => {
-		item = itemModel.newItem();
+		item = itemModel.newItem("name", "category", "description", 0);
 	});
 
 	it("item should be a valid object", (done) => {
