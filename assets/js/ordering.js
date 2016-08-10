@@ -6,6 +6,24 @@ $( document ).ready(function() {
 
 	$("input[name='cat']").on("change", function(e) {
 			$("#add").show("fade");
+			var category = ;
+			$.ajax({
+				type: "POST",
+			 	dataType: "json",
+			 	url: "/api/items",
+				data: {cat: category},
+		 	}).done(function(result) {
+			 	if (result.error === true) {
+			 		alert(result.message);
+				 	return console.error(result.message);
+			 	}
+				// do something with the success, like show a link
+				console.log(result);
+		 	}).fail(function(err) {
+				// do something with the failure, like laugh at the user
+				window.alert("hahahahaha! NO!");
+				console.error(err);
+		 });
 	});
 
 	$("#infoButton").on("click", function(e) {

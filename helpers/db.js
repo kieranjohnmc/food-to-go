@@ -51,6 +51,22 @@ exports.saveOrder = function* saveOrder(document) {
 	}
 };
 
+// Saves a document in a database in CouchDB.
+exports.saveItem = function* saveItem(document) {
+	try {
+		const db = connectToDatabase("items");
+		const returnVal = yield db.saveAsync(document.id, document);
+		document.id = returnVal.id;
+		document.error = false;
+		return document;
+	} catch (err) {
+		return {
+			error: true,
+			message: `DB: Save of [${document.id}] failed`
+		};
+	}
+};
+
 // Removes a document in a database in CouchDB.
 exports.removeOrder = function* removeOrder(id) {
 	try {
@@ -69,7 +85,7 @@ exports.removeOrder = function* removeOrder(id) {
 exports.getAllOrders = function* getAllOrders(state) {
 	try {
 		const db = connectToDatabase("orders");
-		const doc = yield db.allAsync();
+		const doc = yield db.viewAsync("getorders/all");
 		doc.error = false;
 		return doc;
 	} catch (err) {

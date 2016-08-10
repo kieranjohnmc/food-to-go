@@ -9,19 +9,23 @@ module.exports = {
 	/**
 	* newItem
 	* Creates a new menu item object and returns it
-	*
+	* @param {string} name
+	* @param {string} category
+	* @param {string} description
+	* @param {string} price
+	* @returns {object} order -  The full item object
 	*/
-	newItem: () => {
+	newItem: (name, cat, desc, price) => {
 		const item = {
 			error: false,
-			name: "name",
+			name: name,
 			// What is it? pizza? breadsticks?
-			category: "category",
+			category: cat,
 			// EXPLAIN TO ME WHAT I PICKED
-			description: "description",
+			description: desc,
 			// Size, toppings, etc
 			options: [],
-			price: 0
+			price: price
 		};
 		return item;
 	}
