@@ -65,3 +65,17 @@ exports.removeOrder = function* removeOrder(id) {
 		};
 	}
 };
+
+exports.getAllOrders = function* getAllOrders(state) {
+	try {
+		const db = connectToDatabase("orders");
+		const doc = yield db.allAsync();
+		doc.error = false;
+		return doc;
+	} catch (err) {
+		return {
+			error: true,
+			message: "DB: Get of all docs failed"
+		};
+	}
+};

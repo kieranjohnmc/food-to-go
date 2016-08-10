@@ -60,7 +60,7 @@ module.exports.saveInfo = function* saveInfo() {
 		return this.body = {error: true, message: "Must include name address and phone number!"};
 	}
 
-	const order = orderModel.addCustInfo(params.order, params.name, params.address, params.phone);
+	const order = orderModel.addCustInfo(params.order, params.customerName, params.customerAddress, params.customerPhone);
 	if (order.error === true) {
 		this.status = 400;
 		return this.body = {error: true, message: order.message};

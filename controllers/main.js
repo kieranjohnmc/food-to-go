@@ -21,3 +21,10 @@ module.exports.ordering = function* ordering() {
 		script: "ordering"
 	});
 };
+
+module.exports.store = function* store() {
+	yield this.render("store/store", {
+		title: config.site.name,
+		script: "store"
+	});
+};
