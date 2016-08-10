@@ -11,11 +11,13 @@ const routes = new Router();
 const main = require("./controllers/main.js");
 const account = require("./controllers/account.js");
 const api = require("./controllers/api.js");
+const store = require("./controllers/store.js");
 
 // routes
 
 routes.get("/", main.index);
 routes.get("/ordering", main.ordering);
+routes.get("/store", main.store);
 
 // for passport
 routes.get("/login", account.login);
@@ -25,6 +27,8 @@ routes.get("/account", account.index);
 routes.post("/api/order", api.newOrder);
 routes.post("/api/getOrder", api.getOrder);
 routes.post("/api/info", api.saveInfo);
+
+routes.post("/store/retrieve", store.getOrders);
 
 // you can add as many strategies as you want
 routes.get("/auth/github",
