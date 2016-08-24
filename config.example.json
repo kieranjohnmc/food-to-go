@@ -12,6 +12,11 @@
     },
     "analytics": "UA-00000000-0"
   },
+	"plugins": {
+		"stripe": {
+			"secret_key": "APIKEY",
+		}
+	},
   "deploy":{
     "username": "YOUR USERNAME",
     "hostname": "YOUR HOSTNAME",

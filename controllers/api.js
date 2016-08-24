@@ -19,25 +19,39 @@ module.exports.newOrder = function* newOrder() {
 		this.status = 400;
 		return this.body = {error: true, message: "Must include location and method"};
 	}
-
 	const order = orderModel.newOrder(params.location, params.method);
 	if (order.error === true) {
 		this.status = 400;
 		return this.body = {error: true, message: order.message};
 	}
+	// save params to shorter variables
+	const location = params.location;
+	const method = params.method;
 
+	// save order to db
 	const result = yield db.saveOrder(order);
 	if (result.error === true) {
 		this.status = 400;
 		return this.body = {error: true, message: order.message};
 	}
+	// save params to session.
+	this.session.location = location;
+	this.session.method = method;
 
+	// return result
 	return this.body = result;
 
 };
 
 module.exports.getOrder = function* getOrder() {
 	const params = this.request.body;
+
+	if (!this.session.location || !this.session.method) {
+		return yield this.render("error", {
+			message: "You must select a location and an order method."
+		});
+	}
+	
 	if (!params.id) {
 		this.status = 400;
 		console.log(params);
