@@ -80,19 +80,14 @@ module.exports.saveInfo = function* saveInfo() {
 
 };
 
-module.exports.getItems = function* getOrders() {
+module.exports.getAllItems = function* getAllItems() {
 	const params = this.request.body;
-	if (!params.state) {
-		this.status = 400;
-		console.log(params);
-		return this.body = {error: true, message: "Must include order state"};
-	}
 
-	const order = yield db.getAllOrders(params.state);
-	if (order.error === true) {
+	const item = yield db.getAllItems();
+	if (item.error === true) {
 		this.status = 400;
 		return this.body = {error: true, message: order.message};
 	}
 
-	return this.body = order;
+	return this.body = item;
 };

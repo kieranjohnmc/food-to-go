@@ -28,7 +28,7 @@ routes.get("/account", account.index);
 routes.post("/api/order", api.newOrder);
 routes.post("/api/getOrder", api.getOrder);
 routes.post("/api/info", api.saveInfo);
-routes.post("/api/items", api.getItems);
+routes.post("/api/items", api.getAllItems);
 
 routes.post("/store/retrieve", store.getOrders);
 routes.post("/store/items/add", store.newItem);
