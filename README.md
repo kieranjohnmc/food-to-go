@@ -1,4 +1,4 @@
-# :pizza: Food to go!
+# Food to go!
 A great way to order your food online!
 
 ## Prerequisites
