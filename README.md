@@ -1,9 +1,8 @@
-# :pizza: PizzaGO
-A great way to order your pizza on the GO!
+# :pizza: Food to go!
+A great way to order your food online!
 
 ## Prerequisites
 * [Node.js](https://nodejs.org/en/) (Version 5 and up recommended)
-* [Github Client ID and Secret](https://github.com/settings/developers) (for OAuth)
 
 ### Installation
 
@@ -12,7 +11,7 @@ A great way to order your pizza on the GO!
 git clone https://github.com/cynical89/PizzaGO.git
 ```
 
-* Install packages (from inside the PizzaGO folder).
+* Install packages (from inside the food-to-go folder).
 ```
 npm install
 ```
