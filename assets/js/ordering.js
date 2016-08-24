@@ -6,7 +6,7 @@ $( document ).ready(function() {
 
 	$("input[name='cat']").on("change", function(e) {
 			$("#add").show("fade");
-			var category = ;
+			var category = "";
 			$.ajax({
 				type: "POST",
 			 	dataType: "json",
@@ -90,16 +90,11 @@ function hideAll() {
 }
 
 function getOrder() {
-	// FIXME: This needs to be sessions, not local storage
-	var options = localStorage.getItem('_options');
-	if(!options) return false;
-	options = JSON.parse(options);
 
 	$.ajax({
 		type: "POST",
 		dataType: "json",
 		url: "/api/getOrder",
-		data: {id: options.id},
 	}).done(function(result) {
 		if (result.error === true) {
 			alert(result.message);
@@ -116,7 +111,7 @@ function getOrder() {
 
 	}).fail(function(err) {
 		// do something with the failure, like laugh at the user
-		window.alert("No item with that id");
+		window.alert("No order with that id");
 		console.error(err);
  });
 }
