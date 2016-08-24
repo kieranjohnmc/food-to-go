@@ -1,8 +1,8 @@
 {
   "site":{
     "port": 5000,
-    "name": "PizzaGO",
-    "secret": "pizza-go-is-the-best-pokemon",
+    "name": "Food To Go",
+    "secret": "foodtogo-yum",
     "oauth": {
       "host": "http://127.0.0.1",
       "github": {
@@ -14,13 +14,13 @@
   },
 	"plugins": {
 		"stripe": {
-			"secret_key": "APIKEY",
+			"secret_key": "APIKEY"
 		}
 	},
   "deploy":{
     "username": "YOUR USERNAME",
     "hostname": "YOUR HOSTNAME",
-    "path": "~/PizzaGO",
-    "screen": "pizzago"
+    "path": "~/food-to-go",
+    "screen": "foodtogo"
   }
 }

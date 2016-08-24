@@ -1,7 +1,5 @@
 var locationSelected = false;
-if(localStorage.getItem("options")) {
-	localStorage.removeItem("options");
-}
+
 $("#two").hide();
 $("#go").hide();
 
@@ -34,11 +32,6 @@ $( document ).ready(function() {
 		 	}
 			// do something with the success, like show a link
 			console.log(result);
-			// save order id here. this is saved in localStorage
-			// TODO: sessions instead.
-			var options = {id: result.id};
-			options = JSON.stringify(options);
-			localStorage.setItem("_options", options);
 			window.location = "ordering";
 	 	}).fail(function(err) {
 			// do something with the failure, like laugh at the user
