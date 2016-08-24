@@ -11,13 +11,8 @@ const itemModel = require("../models/item");
 
 module.exports.getOrders = function* getOrders() {
 	const params = this.request.body;
-	if (!params.state) {
-		this.status = 400;
-		console.log(params);
-		return this.body = {error: true, message: "Must include order state"};
-	}
 
-	const order = yield db.getAllOrders(params.state);
+	const order = yield db.getAllOrders();
 	if (order.error === true) {
 		this.status = 400;
 		return this.body = {error: true, message: order.message};

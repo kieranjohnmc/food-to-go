@@ -20,7 +20,9 @@ const connectToDatabase = (dbName) => {
 	}
 };
 
-// Grabs a document from a database in CouchDB.
+// This is for the orders!
+
+// Grabs an order document from the database in CouchDB.
 exports.getOrder = function* getOrder(id) {
 	try {
 		const db = connectToDatabase("orders");
@@ -35,7 +37,7 @@ exports.getOrder = function* getOrder(id) {
 	}
 };
 
-// Saves a document in a database in CouchDB.
+// Saves an order document in the database in CouchDB.
 exports.saveOrder = function* saveOrder(document) {
 	try {
 		const db = connectToDatabase("orders");
@@ -51,7 +53,7 @@ exports.saveOrder = function* saveOrder(document) {
 	}
 };
 
-// Saves a document in a database in CouchDB.
+// Saves an order document in the database in CouchDB.
 exports.saveItem = function* saveItem(document) {
 	try {
 		const db = connectToDatabase("items");
@@ -67,7 +69,7 @@ exports.saveItem = function* saveItem(document) {
 	}
 };
 
-// Removes a document in a database in CouchDB.
+// Removes an order document in the database in CouchDB.
 exports.removeOrder = function* removeOrder(id) {
 	try {
 		const db = connectToDatabase("orders");
@@ -82,7 +84,8 @@ exports.removeOrder = function* removeOrder(id) {
 	}
 };
 
-exports.getAllOrders = function* getAllOrders(state) {
+// Grabs all order documents from the database in CouchDB.
+exports.getAllOrders = function* getAllOrders() {
 	try {
 		const db = connectToDatabase("orders");
 		const doc = yield db.viewAsync("getorders/all");
@@ -91,7 +94,24 @@ exports.getAllOrders = function* getAllOrders(state) {
 	} catch (err) {
 		return {
 			error: true,
-			message: "DB: Get of all docs failed"
+			message: "DB: Get of all order docs failed"
+		};
+	}
+};
+
+// This is for the items
+
+// Grabs all item documents from the database in CouchDB.
+exports.getAllItems = function* getAllItems() {
+	try {
+		const db = connectToDatabase("items");
+		const doc = yield db.viewAsync("getitems/all");
+		doc.error = false;
+		return doc;
+	} catch (err) {
+		return {
+			error: true,
+			message: "DB: Get of all item docs failed"
 		};
 	}
 };
