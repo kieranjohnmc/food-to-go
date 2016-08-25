@@ -91,3 +91,21 @@ module.exports.getAllItems = function* getAllItems() {
 
 	return this.body = item;
 };
+
+module.exports.addItem = function* addItem() {
+	const params = this.request.body;
+	if (!params.item && !params.order) {
+		this.status = 400;
+		return this.body = {error: true, message: "Must include an item"};
+	}
+	params.order.items.push(params.item);
+
+	// save order to db
+	const result = yield db.saveOrder(params.order);
+	if (result.error === true) {
+		this.status = 400;
+		return this.body = {error: true, message: order.message};
+	}
+
+	return this.body = result;
+};

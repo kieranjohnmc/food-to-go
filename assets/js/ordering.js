@@ -1,31 +1,32 @@
 var orderID;
 var order;
 var items;
+var count = 0;
 $( document ).ready(function() {
 	hideAll();
 	getOrder();
 
-	$("input[name='cat']").on("change", function(e) {
-			$("#add").show("fade");
-			var category = "";
-			$.ajax({
-				type: "POST",
-			 	dataType: "json",
-			 	url: "/api/items",
-				data: {cat: category},
-		 	}).done(function(result) {
-			 	if (result.error === true) {
-			 		alert(result.message);
-				 	return console.error(result.message);
-			 	}
-				// do something with the success, like show a link
-				console.log(result);
-		 	}).fail(function(err) {
-				// do something with the failure, like laugh at the user
-				window.alert("hahahahaha! NO!");
-				console.error(err);
-		 });
-	});
+//	$("input[name='cat']").on("change", function(e) {
+//			$("#add").show("fade");
+//			var category = "";
+//			$.ajax({
+//				type: "POST",
+//			 	dataType: "json",
+//			 	url: "/api/items",
+//				data: {cat: category},
+//		 	}).done(function(result) {
+//			 	if (result.error === true) {
+//			 		alert(result.message);
+//				 	return console.error(result.message);
+//			 	}
+//				// do something with the success, like show a link
+//				console.log(result);
+//		 	}).fail(function(err) {
+//				// do something with the failure, like laugh at the user
+//				window.alert("hahahahaha! NO!");
+//				console.error(err);
+//		 });
+//	});
 
 	$("#infoButton").on("click", function(e) {
 		e.preventDefault();
@@ -62,12 +63,7 @@ $( document ).ready(function() {
 			window.alert("hahahahaha! NO!");
 			console.error(err);
 	 });
-
-	$("#continueButton").on("click", function(e) {
-		e.preventDefault();
-		$("#go").hide();
-		$("#one").show("fade");
-	});
+});
 
 	$("#checkoutButton").on("click", function(e) {
 		e.preventDefault();
@@ -76,19 +72,29 @@ $( document ).ready(function() {
 
 	$("#cartButton").on("click", function(e) {
 		e.preventDefault();
-		$("#add").hide();
-		$("#one").hide();
-		$("#go").show("fade");
+		$.ajax({
+			type: "POST",
+			dataType: "json",
+			url: "/api/addItem",
+			data: {item: items[0].value, order: order},
+		}).done(function(result) {
+			if (result.error === true) {
+				alert(result.message);
+				return console.error(result.message);
+			}
+			// do something with the success, like show a link
+			console.log(result);
+		}).fail(function(err) {
+			// do something with the failure, like laugh at the user
+			window.alert("hahahahaha! NO!");
+			console.error(err);
+	 });
+		console.log("click");
 	});
-
-	});
-});
 
 function hideAll() {
 	$("#one").hide();
 	$("#two").hide();
-	$("#go").hide();
-	$("#add").hide();
 }
 
 function getOrder() {
@@ -130,10 +136,11 @@ function getAllItems() {
 			return console.error(result.message);
 		}
 		// do something with the success, like show a link
+		items = result;
 		console.log(result);
 		for(var i = 0; i < result.length; i++) {
 
-			$("#content").append(`<tr><th scope="row"><input type="checkbox"></th><td>${result[i].value.name}</td>
+			$("#content").append(`<tr><th scope="row"><input type="checkbox" id="item${count}"></th><td>${result[i].value.name}</td>
 				<td>${result[i].value.category}</td><td>${result[i].value.description}</td>
 				<td>${result[i].value.price}</td></tr>`);
 
@@ -145,3 +152,5 @@ function getAllItems() {
 		console.error(err);
  });
 }
+
+});

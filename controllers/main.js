@@ -21,17 +21,3 @@ module.exports.ordering = function* ordering() {
 		script: "ordering"
 	});
 };
-
-module.exports.store = function* store() {
-	yield this.render("store/store", {
-		title: config.site.name,
-		script: "store"
-	});
-};
-
-module.exports.add = function* add() {
-	yield this.render("store/add", {
-		title: config.site.name,
-		script: "addItem"
-	});
-};

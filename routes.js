@@ -15,23 +15,26 @@ const store = require("./controllers/store.js");
 
 // routes
 
+// show pages
 routes.get("/", main.index);
 routes.get("/ordering", main.ordering);
-routes.get("/store", main.store);
-routes.get("/store/add", main.add);
+routes.get("/store", store.store);
+routes.get("/store/add", store.add);
 
-// for passport
-routes.get("/login", account.login);
-routes.get("/logout", account.logout);
-routes.get("/account", account.index);
-
+// get info back for consumer end
 routes.post("/api/order", api.newOrder);
 routes.post("/api/getOrder", api.getOrder);
 routes.post("/api/info", api.saveInfo);
 routes.post("/api/items", api.getAllItems);
+routes.post("/api/addItem", api.addItem);
 
+// get info back for store end
 routes.post("/store/retrieve", store.getOrders);
 routes.post("/store/items/add", store.newItem);
+// for passport
+routes.get("/login", account.login);
+routes.get("/logout", account.logout);
+routes.get("/account", account.index);
 
 // you can add as many strategies as you want
 routes.get("/auth/github",
